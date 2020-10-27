@@ -23,10 +23,39 @@ namespace ImageProcessing
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK) // Метод возвращает открытие файла. Проверка, открылся ли файл
             {
-                pictureBox1.Image = null; // удаление старой картинки. Bitmap - двумерный массив из закрашенных пикселей. 
+                pictureBox1.Image = null; // удаление старой картинки. 
                 _images.Clear(); // Непосредственно очистка
-                
+
+                var image = new Bitmap(openFileDialog1.FileName); // Открытие файла-картинки в новой переменной. Bitmap - двумерный массив из закрашенных пикселей. 
             }
+        }
+
+        private void Processing(Bitmap image) // Обработка картинки
+        {
+            var elements = GetElements(image); // Возвращает лист пикселей
+            var step = (image.Width * image.Height) / 100; // Подсчет количества пикселей в 1 проценте ( итерации )
+            for (int i = 0; i < trackBar1.Maximum; i++) // Помещение всех 100 картинок в лист _images
+            {
+
+            }
+        }
+
+        private List<Element> GetElements(Bitmap image) // Возвращение списка элементов. Задачей является взять информацию о каждом пикселе
+        {
+            var elements = new List<Element>(image.Width * image.Height); // элементов массива лист столько, сколько пикселей в картинке. Сильная экономия памяти
+
+            for (int y = 0; y < image.Height; y++) // Анализ каждого пикселя
+            {
+                for (int x = 0; x < image.Width; x++)
+                {
+                    elements.Add(new Element() // Добавляется новый объект класса элемент 
+                    {
+                        Color = image.GetPixel(x, y), // Извлечение координаты
+                        Point = new Point() { X = x, Y = y} // Хранение полученной координаты в точке
+                    }) ;
+                }
+            }
+            return elements;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e) // Скрол бар
