@@ -20,8 +20,8 @@ namespace ImageProcessing
         private void openToolStripMenuItem_Click(object sender, EventArgs e) // Открытие файла
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK) // Метод возвращает открытие файла. Проверка, открылся ли файл
-            { // Bitmap - двумерный массив из закрашенных пикселей. 
-                pictureBox1.Image = new Bitmap(openFileDialog1.FileName); // Формирование картинке в boxe из взятого файла
+            { 
+                pictureBox1.Image = new Bitmap(openFileDialog1.FileName); // Формирование картинке в boxe из взятого файла. Bitmap - двумерный массив из закрашенных пикселей. 
             }
         }
     }
