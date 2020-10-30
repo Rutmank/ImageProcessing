@@ -67,6 +67,7 @@
             // 
             // trackBar1
             // 
+            this.trackBar1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.trackBar1.Dock = System.Windows.Forms.DockStyle.Left;
             this.trackBar1.Location = new System.Drawing.Point(0, 0);
             this.trackBar1.Maximum = 100;
@@ -91,6 +92,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
